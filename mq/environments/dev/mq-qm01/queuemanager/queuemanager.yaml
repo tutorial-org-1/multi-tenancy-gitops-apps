@@ -14,7 +14,7 @@ spec:
     availability:
       type: SingleInstance
     debug: false
-    image: image-registry.openshift-image-registry.svc:5000/ci/mq-qm01:0.0.1
+    image: image-registry.openshift-image-registry.svc:5000/ci/mq-qm01:0.0.2
     imagePullPolicy: Always
     livenessProbe:
       failureThreshold: 1
