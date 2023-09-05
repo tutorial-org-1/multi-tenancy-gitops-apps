@@ -14,7 +14,7 @@ spec:
     availability:
       type: SingleInstance
     debug: false
-    image: image-registry.openshift-image-registry.svc:5000/ci/mq-qm01:0.0.3
+    image: image-registry.openshift-image-registry.svc:5000/ci/mq-qm01:0.0.2
     imagePullPolicy: Always
     livenessProbe:
       failureThreshold: 1
@@ -40,17 +40,20 @@ spec:
     resources:
       limits:
         cpu: "1"
-        memory: 2Gi
+        memory: 1Gi
       requests:
         cpu: "1"
         memory: 1Gi
     storage:
       persistedData:
-        enabled: false
+        class: ibmc-vpc-block-general-purpose
+        enabled: true
       queueManager:
-        type: ephemeral
+        class: ibmc-vpc-block-general-purpose
+        type: persistent-claim
       recoveryLogs:
-        enabled: false
+        class: ibmc-vpc-block-general-purpose
+        enabled: true
   securityContext:
     initVolumeAsRoot: false
   template:
